@@ -1,29 +1,34 @@
 h3 BLOG
-  .row
-    .col-xs-3
-      form
-        .form-group
-          input.form-control(type='text', placeholder='title')
-  .row
-    .col-xs-6
-      form
-        .form-group
-          
-          textarea.form-control(placeholder='blog entry')
+  .container(ng-controller='TasksCtrl')
+    .row
+      .col-xs-3
+        form
+          .form-group
+            input.form-control(ng-show='activeUser', type='text', placeholder='title', ng-model='task.title')
+    .row
+      .col-xs-6
+        form
+          .form-group
+            
+            textarea(ng-show='activeUser', rows="20").form-control(placeholder='blog entry', ng-model='task.blog')
+    
+    .row
+      .col-xs-12
+        button.btn.btn-info(ng-show='activeUser', ng-click='addTask(task)') Post Blog
+    
+.rows(ng-repeat='task in afTasks')
+  .col-xs-9
+    h2 {{task.title}}
+    p {{task.blog}}
+    p {{task.createdAt | date: 'MM-dd-yyyy'}}
+    button.btn-xs.btn-success(ng-show='activeUser', ng-click='editTask(task)') Edit
+    button.btn-xs.btn-warning(ng-show='activeUser', ng-click='saveEdit(task)') Save
+    button.btn-xs.btn-danger(ng-show='activeUser', ng-click='deleteTask(task)') Delete
+
   
-  .row
-    .col-xs-12
-      button.btn.btn-info(ng-hide='task.$id', ng-click='addTask(task)') Post Blog
-      button.btn.btn-warning(ng-show='task.$id', ng-click='saveEdit(task)') Save Task
   
-  
-  
-  
-  
-  
-  
-  
-  
+      
+      
       
       
   

@@ -9,7 +9,7 @@ angular.module('checklist')
   var afTasks;
 
   function init(){
-    fbTasks = $rootScope.fbRoot.child('users/' + $rootScope.activeUser.uid + '/tasks');
+    fbTasks = $rootScope.fbRoot.child('users/simplelogin:1/tasks');
     afTasks = $firebaseArray(fbTasks);
     return afTasks;
   }

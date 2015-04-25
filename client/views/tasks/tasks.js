@@ -1,23 +1,27 @@
 'use strict';
 
 angular.module('checklist')
-.controller('TasksCtrl', ['$scope', 'Task', '$window', function($scope, Task, $window){
+.controller('TasksCtrl', ['$scope', 'Task', '$window', '$rootScope', '$state', function($scope, Task, $window, $rootScope, $state){
   // return user tasks
   $scope.afTasks = Task.init();
+
+  $scope.afAuth.$onAuth(function(data){
+    if(data){
+      $rootScope.activeUser = data;
+    }
+    else{
+      $rootScope.activeUser = null;
+    }
+  });
 
   $scope.sort = function(sortString){
     var modifier = ($scope.taskOrder === sortString) ? '-' : '';
     $scope.taskOrder = modifier + sortString;
   };
 
-  console.log('entering controller');
-
   $scope.addTask = function(task){
 
-    // add properties to object
-    task.dueDate = task.dueDate.getTime();
     task.createdAt = $window.Firebase.ServerValue.TIMESTAMP;
-    task.isComplete = false;
 
     Task.add(task)
     .then(function(data){
