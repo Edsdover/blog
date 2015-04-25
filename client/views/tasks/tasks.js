@@ -8,7 +8,7 @@ angular.module('checklist')
   $scope.sort = function(sortString){
     var modifier = ($scope.taskOrder === sortString) ? '-' : '';
     $scope.taskOrder = modifier + sortString;
-  }
+  };
 
   console.log('entering controller');
 
@@ -39,7 +39,7 @@ angular.module('checklist')
   $scope.saveEdit = function(task){
     $scope.task = {};
     Task.save(task);
-  }
+  };
 
   $scope.toggleComplete = function(task){
     task.dueDate = new Date(task.dueDate);
