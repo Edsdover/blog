@@ -9,7 +9,7 @@ angular.module('checklist')
   var afTasks;
 
   function init(){
-    fbTasks = $rootScope.fbRoot.child('users/simplelogin:1/tasks');
+    fbTasks = $rootScope.fbRoot.child('users/simplelogin:2/tasks');
     afTasks = $firebaseArray(fbTasks);
     return afTasks;
   }
@@ -19,11 +19,12 @@ angular.module('checklist')
   }
 
   function destroy(task){
+    console.log('delete function in task factory')
     return afTasks.$remove(task);
   }
 
   function save(task){
-    task.dueDate = task.dueDate.getTime();
+    console.log(afTasks, 'af tasks');
     return afTasks.$save(task);
   }
 

@@ -36,13 +36,18 @@ angular.module('checklist')
   };
 
   $scope.editTask = function(task){
-    task.dueDate = new Date(task.dueDate);
     $scope.task = task;
   };
 
   $scope.saveEdit = function(task){
+    Task.save(task)
+    .then(function(){
+      console.log('promise');
+    })
+    .catch(function(err){
+      console.log(err);
+    })
     $scope.task = {};
-    Task.save(task);
   };
 
   $scope.toggleComplete = function(task){
