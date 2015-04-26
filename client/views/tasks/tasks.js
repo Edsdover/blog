@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('checklist')
-.controller('TasksCtrl', ['$scope', 'Task', '$window', '$rootScope', '$state', function($scope, Task, $window, $rootScope, $state){
+.controller('TasksCtrl', ['$scope', 'Task', '$window', '$rootScope', function($scope, Task, $window, $rootScope){
   // return user tasks
   $scope.afTasks = Task.init();
 
@@ -14,10 +14,17 @@ angular.module('checklist')
     }
   });
 
-  $scope.sort = function(sortString){
-    var modifier = ($scope.taskOrder === sortString) ? '-' : '';
-    $scope.taskOrder = modifier + sortString;
-  };
+  $scope.tags = [
+      { text: 'Angular' },
+      { text: 'jQuery' },
+      { text: 'Firebase' },
+      { text: 'Node' }
+  ];
+
+  // $scope.sort = function(sortString){
+  //   var modifier = ($scope.taskOrder === sortString) ? '-' : '';
+  //   $scope.taskOrder = modifier + sortString;
+  // };
 
   $scope.addTask = function(task){
 
@@ -46,7 +53,7 @@ angular.module('checklist')
     })
     .catch(function(err){
       console.log(err);
-    })
+    });
     $scope.task = {};
   };
 

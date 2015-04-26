@@ -1,4 +1,24 @@
-h1 Home
+.container-fluid.banner
+      .row
+        h2#name Evan Gatchell
+        h6#title Web Development | Software Engineering
+    
 
-//- .container-fluid.banner(ng-controller='Main')
+    .container-fluid.intro
+      .row
+        .col-xs-12
+          h4 My name is Evan Gatchell.
+          h6 I am a full-stack JavaScript engineer.
+          img#my-photo(src='http://i.imgur.com/dugKr2x.jpg')
+          h6 I enjoy writing software and powerful web-applications. 
+          h6 In my free time I like to travel, drink good beer,
+          h6 and watch Star Wars.
+          
+    .container-fluid.portfolio
+      .row
+        h2#portfolio Active Projects
+        .col-md-4(ng-repeat='item in portfolio') 
+          h4.text-capitalize {{item.title}}
+          a(href='{{item.link}}', target='_blank'): img(src='{{item.image}}')
+          h5 {{item.description}}
   

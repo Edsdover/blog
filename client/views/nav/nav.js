@@ -18,4 +18,4 @@ angular.module('checklist')
   $scope.logout = function(){
     User.logout();
   };
-}])
+}]);

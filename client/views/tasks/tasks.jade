@@ -1,55 +1,24 @@
 h3 BLOG
-  .container(ng-controller='TasksCtrl')
+  .container.center-block(ng-controller='TasksCtrl')
     .row
-      .col-xs-3
-        form
-          .form-group
+      .col-xs-3.col-xs-offset-3
+        form.form-group
             input.form-control(ng-show='activeUser', type='text', placeholder='title', ng-model='task.title')
     .row
-      .col-xs-6
-        form
-          .form-group
-            
+      .col-xs-6.col-xs-offset-3
+        form.form-group
             textarea(ng-show='activeUser', rows="20").form-control(placeholder='blog entry', ng-model='task.blog')
-    .row
-      .col-xs-6
-        tags-input(ng-model="tags")
-          auto-complete(source="loadTags($query)")
     
     .row
       .col-xs-12(ng-show='activeUser')
         button.btn.btn-info(ng-hide='task.$id', ng-click='addTask(task)') Post Blog
         button.btn-xs.btn-warning(ng-show='task.$id', ng-click='saveEdit(task)') Save
     
-    .row(ng-repeat='blogEntry in afTasks | orderBy:"-createdAt"')
-      .col-xs-9
+    .row.blogSquare(ng-repeat='blogEntry in afTasks | orderBy:"-createdAt"')
+      .col-xs-8.col-xs-offset-2
         h2 {{blogEntry.title}}
-        p {{blogEntry.blog}}
-        p {{blogEntry.createdAt | date: 'MM-dd-yyyy'}}
-        p Tags:
+        button.btn-xs.btn-info(ng-click='showBody = !showBody') Read
+        h4.text-info(ng-show='showBody') {{blogEntry.blog}}
+        h6 {{blogEntry.createdAt | date: 'MM-dd-yyyy'}}
         button.btn-xs.btn-success(ng-show='activeUser', ng-click='editTask(blogEntry)') Edit
         button.btn-xs.btn-danger(ng-show='activeUser', ng-click='deleteTask(blogEntry)') Delete
-
-  
-  
-      
-      
-      
-      
-  
-//- table.table.table-striped
-//-   thead
-//-     tr
-//-       th Edit:
-//-       th Delete:
-//-       th(ng-click='sort("title")') Title:
-//-       th(ng-click='sort("createdAt")') Created At:
-//-   tbody
-//-     tr(ng-repeat='task in afTasks | orderBy:taskOrder', ng-class='{completed:task.isComplete}')
-//-       td: button.btn.btn-xs.btn-link(ng-click='editTask(task)') Edit
-//-       td: button.btn.btn-xs.btn-warning(ng-click='deleteTask(task)') Delete
-//-       td {{task.title}}
-//-       td {{task.dueDate | date:'yyyy-MM-dd'}}
-//-       td {{task.priority}}
-//-       td: input(type='checkbox', ng-model='task.isComplete', ng-click='toggleComplete(task)')
-//-       td {{task.createdAt | date:'yyyy-MM-dd HH:mm:ss a'}}

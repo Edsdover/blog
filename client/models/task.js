@@ -19,7 +19,7 @@ angular.module('checklist')
   }
 
   function destroy(task){
-    console.log('delete function in task factory')
+    console.log('delete function in task factory');
     return afTasks.$remove(task);
   }
 

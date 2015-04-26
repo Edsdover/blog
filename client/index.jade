@@ -4,16 +4,16 @@ html(lang='en', ng-app='checklist')
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    title Blog
+    title Evan Gatchell
     link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/slate/bootstrap.min.css')
     link(rel='stylesheet', href='/vendor/font-awesome/css/font-awesome.min.css')
     link(rel='stylesheet', href=isProd ? '/index.min.css' : '/index.css')
-    link(rel='shortcut icon', href='/favicon.ico')
+    link(rel='shortcut icon', href='http://greygatch.us/favicon.ico')
   body
     include views/nav/nav
     .container-fluid
       .row
-        .col-xs-offset-2
+        .col-xs-12
           div(ui-view)
     
     script(src='/vendor/jquery/dist/jquery.min.js')

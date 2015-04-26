@@ -11,7 +11,7 @@ angular.module('checklist')
     return $rootScope.afAuth.$authWithPassword(user);
   }
 
-  function logout(user){
+  function logout(){
     return $rootScope.afAuth.$unauth();
   }
 
