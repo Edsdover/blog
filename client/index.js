@@ -12,7 +12,10 @@ angular.module('checklist', ['firebase', 'ui.router', 'ngTagsInput'])
   .state('contact', {url: '/contact', templateUrl: '/views/home/contact.html'})
   .state('register', {url: '/register', templateUrl: '/views/users/users.html', controller: 'UsersCtrl'})
   .state('login', {url: '/login', templateUrl: '/views/users/users.html', controller: 'UsersCtrl'})
-  .state('tasks', {url: '/tasks', templateUrl: '/views/tasks/tasks.html', controller: 'TasksCtrl'});
+  .state('tasks', {url: '/tasks', templateUrl: '/views/tasks/tasks.html', controller: 'TasksCtrl'})
+  .state('blogpost', {url: '/{blogpost}', templateUrl: '/views/blogpost/blogpost.html', controller: 'BlogCtrl'});
+
+  // $locationProvider.html5Mode(true);
 }])
 .run(['$rootScope','$window', '$firebaseAuth', 'firebaseUrl', function($rootScope, $window, $firebaseAuth, firebaseUrl){
   $rootScope.fbRoot = new $window.Firebase(firebaseUrl);

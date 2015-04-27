@@ -14,13 +14,6 @@ angular.module('checklist')
     }
   });
 
-  $scope.tags = [
-      { text: 'Angular' },
-      { text: 'jQuery' },
-      { text: 'Firebase' },
-      { text: 'Node' }
-  ];
-
   // $scope.sort = function(sortString){
   //   var modifier = ($scope.taskOrder === sortString) ? '-' : '';
   //   $scope.taskOrder = modifier + sortString;
@@ -58,7 +51,6 @@ angular.module('checklist')
   };
 
   $scope.toggleComplete = function(task){
-    task.dueDate = new Date(task.dueDate);
     Task.save(task);
   };
 

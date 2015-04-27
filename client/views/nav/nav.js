@@ -12,7 +12,7 @@ angular.module('checklist')
       $rootScope.activeUser = null;
     }
     $state.go('home');
-  });
+  })
 
 
   $scope.logout = function(){
