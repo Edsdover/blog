@@ -14,11 +14,11 @@ h3 BLOG
         button.btn.btn-info(ng-hide='task.$id', ng-click='addTask(task)') Post Blog
         button.btn-xs.btn-warning(ng-show='task.$id', ng-click='saveEdit(task)') Save
     
-    .row.blogSquare(ng-repeat='blogEntry in afTasks | orderBy:"-createdAt"')
-      .col-xs-8.col-xs-offset-2
+    .row.blogSquare(ng-repeat='blogEntry in afTasks | orderBy: "createdAt" track by $index')
         h2 {{blogEntry.title}}
-        button.btn-xs.btn-info(ng-click='showBody = !showBody') Read
-        h4.text-info(ng-show='showBody') {{blogEntry.blog}}
+        //- button.btn-xs.btn-info(ng-click='showBody = !showBody') Read
+        button.btn-xs.btn-info(ng-click='goToBlogPost($index)') Read 4 Reel
+        h4.text-info {{blogEntry.blog.slice(0,200) + '...'}}
         h6 {{blogEntry.createdAt | date: 'MM-dd-yyyy'}}
         button.btn-xs.btn-success(ng-show='activeUser', ng-click='editTask(blogEntry)') Edit
         button.btn-xs.btn-danger(ng-show='activeUser', ng-click='deleteTask(blogEntry)') Delete

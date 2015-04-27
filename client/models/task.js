@@ -28,6 +28,10 @@ angular.module('checklist')
     return afTasks.$save(task);
   }
 
-  return {add: add, init: init, destroy: destroy, save: save};
+  function getBlog(){
+    return afTasks;
+  }
+
+  return {add: add, init: init, destroy: destroy, save: save, getBlog: getBlog};
 
 }]);

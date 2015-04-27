@@ -13,7 +13,7 @@ angular.module('checklist', ['firebase', 'ui.router', 'ngTagsInput'])
   .state('register', {url: '/register', templateUrl: '/views/users/users.html', controller: 'UsersCtrl'})
   .state('login', {url: '/login', templateUrl: '/views/users/users.html', controller: 'UsersCtrl'})
   .state('tasks', {url: '/tasks', templateUrl: '/views/tasks/tasks.html', controller: 'TasksCtrl'})
-  .state('blogpost', {url: '/{blogpost}', templateUrl: '/views/blogpost/blogpost.html', controller: 'BlogCtrl'});
+  .state('blogpost', {url: '/{kdjfks}', templateUrl: '/views/blogpost/blogpost.html', controller: 'BlogCtrl'});
 
   // $locationProvider.html5Mode(true);
 }])

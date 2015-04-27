@@ -1,9 +1,10 @@
 'use strict';
 
 angular.module('checklist')
-.controller('TasksCtrl', ['$scope', 'Task', '$window', '$rootScope', function($scope, Task, $window, $rootScope){
+.controller('TasksCtrl', ['$scope', 'Task', '$window', '$rootScope', '$state', function($scope, Task, $window, $rootScope, $state){
   // return user tasks
   $scope.afTasks = Task.init();
+
 
   $scope.afAuth.$onAuth(function(data){
     if(data){
@@ -18,6 +19,8 @@ angular.module('checklist')
   //   var modifier = ($scope.taskOrder === sortString) ? '-' : '';
   //   $scope.taskOrder = modifier + sortString;
   // };
+
+
 
   $scope.addTask = function(task){
 
@@ -53,5 +56,11 @@ angular.module('checklist')
   $scope.toggleComplete = function(task){
     Task.save(task);
   };
+
+  $scope.goToBlogPost = function(index){
+    console.log($scope.afTasks[index].$id);
+    $rootScope.blogIndex = index;
+    $state.go('blogpost');
+  }
 
 }]);
